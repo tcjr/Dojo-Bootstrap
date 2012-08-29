@@ -60,7 +60,7 @@ define([
         to: function (pos) {
             var active = query('.active', this.domNode),
                 children = active.parent().children(),
-                activePos = children.index(active),
+                activePos = children.indexOf(active[0]),
                 _this = this;
 
             if (pos > (children.length - 1) || pos < 0) { return; }
