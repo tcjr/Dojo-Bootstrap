@@ -1,5 +1,5 @@
 /* ==========================================================
- * Typeahead.js v0.0.1
+ * Typeahead.js v1.0.1
  * ==========================================================
  * Copyright 2012 xsokev
  *
@@ -130,21 +130,21 @@ define([
         },
         next: function () {
             var active = query('.active', this.menuNode);
-            var next = query(active).next();
-
             active.removeClass('active');
+            var next = active.next();
+
             if (!next.length) {
-                next = query('li', this.menuNode);
+                next = query('li', this.menuNode).first();
             }
             next.addClass('active');
         },
         prev: function () {
             var active = query('.active', this.menuNode);
-            var prev = query(active).prev();
-
             active.removeClass('active');
+            var prev = active.prev();
+
             if (!prev.length) {
-                prev = query('li', this.menuNode);
+                prev = query('li', this.menuNode).last();
             }
             prev.addClass('active');
         },
