@@ -1,27 +1,29 @@
 var profile = (function(){
-	var testResourceRe = /^bootstrap\/tests\//;
+	var testResourceRe = /\/tests\//;
 
     var ignore = function(filename, mid){
         var list = {
-            "bootstrap/.gitignore" : true
+            ".gitignore" : true,
+            "assets": true
         };
         return (mid in list);
     };
 
     var test = function(filename, mid){
         var list = {
-            "bootstrap/tests"     : true
+            "tests"     : true
         };
+        
         return (mid in list) ||
             testResourceRe.test(mid);
     };
 
     var copyOnly = function(filename, mid){
         var list = {
-			"bootstrap/bootstrap.profile" : true,
-            "bootstrap/package.json"      : true,
-            "bootstrap/LICENSE"           : true,
-            "bootstrap/README.md"         : true
+			"bootstrap.profile" : true,
+            "package.json"      : true,
+            "LICENSE"           : true,
+            "README.md"         : true
         };
         return (mid in list) ||
             /(png|jpg|jpeg|gif|tiff)$/.test(filename);
@@ -29,8 +31,8 @@ var profile = (function(){
 
     var miniExclude = function(filename, mid){
         var list = {
-            "bootstrap/LICENCE"   : true,
-            "bootstrap/README.md" : true
+            "LICENCE"   : true,
+            "README.md" : true
         };
         return (mid in list);
     };
